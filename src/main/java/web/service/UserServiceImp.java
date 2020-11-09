@@ -79,5 +79,8 @@ public class UserServiceImp implements UserService {
         return userDao.getUserByFirstName(name);
     }
 
-
+   @Override
+   public boolean checkUserById(Long id) {
+      return userDao.checkUserById(id);
+   }
 }

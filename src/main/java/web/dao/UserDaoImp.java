@@ -53,5 +53,10 @@ public class UserDaoImp implements UserDao {
       return query.getSingleResult();
    }
 
-
+   @Override
+   public boolean checkUserById(Long id) {
+      TypedQuery<User> query =  entityManager.createQuery("from User user join fetch user.roles where user.id=:id", User.class);
+      query.setParameter("id", id);
+      return query.getResultList().isEmpty();
+   }
 }

@@ -55,6 +55,11 @@ public class UserController {
 
 	@PostMapping(value = "/admin/delete")
 	public String deleteUser(@ModelAttribute("id") Long id){
+
+		if (!userService.checkUserById(id)) {
+			return "redirect:/admin";
+		}
+
 		userService.remove(id);
 		return "redirect:/admin";
 	}
@@ -67,7 +72,13 @@ public class UserController {
 
 	@GetMapping(value = "/admin/update")
 	public String updateUser(@ModelAttribute("id") Long id, Model model){
-		User user = userService.getUserById(id) ;
+
+		if (userService.checkUserById(id)) {
+			return "redirect:/admin";
+		}
+
+		User user = userService.getUserById(id);
+
 		model.addAttribute("roles", roleService.getRoles());
 		model.addAttribute("user",user);
 		return "update";

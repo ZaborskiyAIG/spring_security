@@ -18,4 +18,6 @@ public interface UserDao {
 
    User getUserByFirstName(String name);
 
+   boolean checkUserById(Long id);
+
 }

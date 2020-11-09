@@ -17,4 +17,6 @@ public interface UserService {
     User getUserById(Long id);
 
     User getUserByFirstName(String name);
+
+    boolean checkUserById(Long id);
 }
