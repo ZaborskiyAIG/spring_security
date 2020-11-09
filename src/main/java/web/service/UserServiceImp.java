@@ -64,7 +64,6 @@ public class UserServiceImp implements UserService {
          roles = oldUser.getRoles();
       }
 
-      user.setRoles(oldUser.getRoles());
       user.setPassword(oldUser.getPassword());
       user.setRoles(roles);
       userDao.update(user);
