@@ -18,9 +18,6 @@ public class Role implements GrantedAuthority {
     @Column(name = "name_role")
     private String nameRole;
 
-    @ManyToMany(mappedBy = "roles", cascade =CascadeType.ALL)
-    private Set<User> users;
-
     public Role() {
 
     }
@@ -32,14 +29,6 @@ public class Role implements GrantedAuthority {
     public Role(Long id, String nameRole) {
         this.id = id;
         this.nameRole = nameRole;
-    }
-
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
     }
 
     public Long getId() {
